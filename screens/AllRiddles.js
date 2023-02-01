@@ -1,7 +1,9 @@
 import { StyleSheet, Text } from "react-native";
+import RiddleList from "../components/RiddleList";
+import { RIDDLES } from "../data/riddles-data";
 
 function AllRiddles() {
-	return <Text style={styles.container}>صفحه اصلی</Text>;
+	return <RiddleList riddles={RIDDLES}></RiddleList>;
 }
 export default AllRiddles;
 

@@ -18,9 +18,11 @@ export default function App() {
 			<NavigationContainer>
 				<Tab.Navigator
 					screenOptions={{
-						headerStyle: { backgroundColor: colors.primary500 },
-						tabBarStyle: { backgroundColor: colors.primary500 },
+						headerStyle: { backgroundColor: colors.primary800 },
+						headerTintColor: "white",
+						tabBarStyle: { backgroundColor: colors.primary800 },
 						tabBarActiveTintColor: colors.primary50,
+						tabBarInactiveTintColor: colors.gray100,
 					}}
 				>
 					<Tab.Screen
