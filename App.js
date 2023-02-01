@@ -5,6 +5,9 @@ import { StyleSheet, Text } from "react-native";
 import AllRiddles from "./screens/AllRiddles";
 import Favorites from "./screens/Favorites";
 import Settings from "./screens/Settings";
+import { colors } from "./constants/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
 	const Tab = createBottomTabNavigator();
@@ -13,10 +16,47 @@ export default function App() {
 			<StatusBar style="auto" />
 			<Text>This is working!</Text>
 			<NavigationContainer>
-				<Tab.Navigator>
-					<Tab.Screen name="چیستان ها" component={AllRiddles}></Tab.Screen>
-					<Tab.Screen name="مورد علاقه" component={Favorites}></Tab.Screen>
-					<Tab.Screen name="تنظیمات" component={Settings}></Tab.Screen>
+				<Tab.Navigator
+					screenOptions={{
+						headerStyle: { backgroundColor: colors.primary500 },
+						tabBarStyle: { backgroundColor: colors.primary500 },
+						tabBarActiveTintColor: colors.primary50,
+					}}
+				>
+					<Tab.Screen
+						name="Riddles"
+						component={AllRiddles}
+						options={{
+							title: "چیستان ها",
+							tabBarIcon: ({ color, size }) => (
+								<MaterialCommunityIcons
+									name="head-question"
+									size={32}
+									color={color}
+								/>
+							),
+						}}
+					></Tab.Screen>
+					<Tab.Screen
+						name="Fvorites"
+						component={Favorites}
+						options={{
+							title: "نشان شده",
+							tabBarIcon: ({ color, size }) => (
+								<Ionicons name="bookmarks" size={24} color={color} />
+							),
+						}}
+					></Tab.Screen>
+					<Tab.Screen
+						name="Settings"
+						component={Settings}
+						options={{
+							title: "تنظیمات",
+							tabBarIcon: ({ color, size }) => (
+								<Ionicons name="settings" size={28} color={color} />
+							),
+						}}
+					></Tab.Screen>
 				</Tab.Navigator>
 			</NavigationContainer>
 		</>
