@@ -25,6 +25,7 @@ export default function App() {
 						headerStyle: { backgroundColor: colors.primary800 },
 						headerTintColor: "white",
 						headerTitleStyle: { fontFamily: "Vazirmatn-Regular" },
+						headerTitleAlign: "center",
 						tabBarStyle: { backgroundColor: colors.primary800 },
 						tabBarActiveTintColor: colors.primary50,
 						tabBarInactiveTintColor: colors.gray100,
