@@ -8,18 +8,23 @@ import Settings from "./screens/Settings";
 import { colors } from "./constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 
 export default function App() {
+	const [fontsLoaded] = useFonts({
+		"Vazirmatn-Regular": require("./assets/fonts/Vazirmatn-Regular.ttf"),
+	});
+
 	const Tab = createBottomTabNavigator();
 	return (
 		<>
 			<StatusBar style="auto" />
-			<Text>This is working!</Text>
 			<NavigationContainer>
 				<Tab.Navigator
 					screenOptions={{
 						headerStyle: { backgroundColor: colors.primary800 },
 						headerTintColor: "white",
+						headerTitleStyle: { fontFamily: "Vazirmatn-Regular" },
 						tabBarStyle: { backgroundColor: colors.primary800 },
 						tabBarActiveTintColor: colors.primary50,
 						tabBarInactiveTintColor: colors.gray100,
