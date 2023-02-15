@@ -7,12 +7,7 @@ export const RIDDLES = [
 		question: "آن چیست که چیستان است؟",
 		answer: "چیستان دیگه!",
 	},
-	{
-		number: (number += 1),
-		id: (id += 1),
-		question: "آن چیست که چیستان نیست؟",
-		answer: "فردا",
-	},
+
 	{
 		number: (number += 1),
 		id: (id += 1),
@@ -75,6 +70,12 @@ export const RIDDLES = [
 	{
 		number: (number += 1),
 		id: (id += 1),
+		question: "آن چیست که چیستان نیست؟",
+		answer: "فردا",
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
 		question:
 			"بدون آن هرگز پیروز نخواهید شد، اما اگر بیش از حد آن را داشته باشید مطمئناً شکست خواهید خورد.",
 		answer: "اعتماد به نفس",
@@ -126,7 +127,7 @@ export const RIDDLES = [
 	{
 		number: (number += 1),
 		id: (id += 1),
-		question: "خر در طویله ولی گوش هایش  بیرون است؟",
+		question: "خر در طویله ولی گوش هایش بیرون است؟",
 		answer: "تیرآهن",
 	},
 	{

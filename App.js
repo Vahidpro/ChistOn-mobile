@@ -9,12 +9,27 @@ import { colors } from "./constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback, useState } from "react";
 
+// Keep the splash screen visible while fetch resources
+SplashScreen.preventAutoHideAsync();
 export default function App() {
+	const [appIsReady, setAppIsReady] = useState(false);
+
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("./assets/fonts/Vazirmatn-Regular.ttf"),
 	});
 
+	const onLayoutRootView = useCallback(async () => {
+		if (fontsLoaded) {
+			await SplashScreen.hideAsync();
+		}
+	}, [fontsLoaded]);
+
+	if (!fontsLoaded) {
+		return null;
+	}
 	const Tab = createBottomTabNavigator();
 	return (
 		<>
@@ -22,6 +37,7 @@ export default function App() {
 			<NavigationContainer>
 				<Tab.Navigator
 					screenOptions={{
+						onLayout: onLayoutRootView,
 						headerStyle: { backgroundColor: colors.primary800 },
 						headerTintColor: "white",
 						headerTitleStyle: { fontFamily: "Vazirmatn-Regular" },
