@@ -1,109 +1,54 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text } from "react-native";
+import * as React from "react";
+import { BottomNavigation, Text } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import Favorites from "./screens/Favorites";
 import Settings from "./screens/Settings";
-import { colors } from "./constants/colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback, useState } from "react";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-// paper provider
-import { AppRegistry } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
-import { name as appName } from "./app.json";
-import { MD3LightTheme as DefaultTheme } from "react-native-paper";
+const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 
-// Keep the splash screen visible while fetch resources
-SplashScreen.preventAutoHideAsync();
-export default function App() {
-	const [fontsLoaded] = useFonts({
-		"Vazirmatn-Regular": require("./assets/fonts/Vazirmatn-Regular.ttf"),
+const BookmarksRoute = () => <Favorites></Favorites>;
+
+const SettingsRoute = () => <Settings></Settings>;
+
+const App = () => {
+	const [index, setIndex] = React.useState(0);
+	const [routes] = React.useState([
+		{
+			key: "settings",
+			title: "تنظیمات",
+			focusedIcon: "cog",
+			unfocusedIcon: "cog",
+		},
+		{
+			key: "bookmarks",
+			title: "نشان شده",
+			focusedIcon: "bookmark-multiple",
+			unfocusedIcon: "bookmark-multiple-outline",
+		},
+		{
+			key: "riddles",
+			title: "چیستان‌ها",
+			focusedIcon: "head-question",
+			unfocusedIcon: "head-question-outline",
+		},
+	]);
+
+	const renderScene = BottomNavigation.SceneMap({
+		settings: AllRiddlesRoute,
+		bookmarks: BookmarksRoute,
+		riddles: SettingsRoute,
 	});
 
-	const onLayoutRootView = useCallback(async () => {
-		if (fontsLoaded) {
-			await SplashScreen.hideAsync();
-		}
-	}, [fontsLoaded]);
-
-	if (!fontsLoaded) {
-		return null;
-	}
-	const Tab = createMaterialBottomTabNavigator();
-
-	const theme = {
-		...DefaultTheme,
-		colors: {
-			...DefaultTheme.colors,
-			primary: "tomato",
-			secondary: "yellow",
-		},
-	};
 	return (
-		<>
-			<StatusBar style="light" />
-			<PaperProvider theme={theme}>
-				<NavigationContainer>
-					<Tab.Navigator
-						screenOptions={{ tabBarActiveBackgroundColor: "red" }}
-						tabBarActiveTintColor={colors.primary900}
-						activeColor={colors.primary500}
-						inactiveColor={colors.primary100}
-						barStyle={{ backgroundColor: colors.primary800 }}
-						shifting={true}
-					>
-						<Tab.Screen
-							name="Riddles"
-							component={AllRiddles}
-							options={{
-								title: "چیستان ها",
-								tabBarIcon: ({ color, size }) => (
-									<MaterialCommunityIcons
-										name="head-question"
-										size={32}
-										color={color}
-									/>
-								),
-							}}
-						></Tab.Screen>
-						<Tab.Screen
-							name="Fvorites"
-							component={Favorites}
-							options={{
-								title: "نشان شده",
-								tabBarIcon: ({ color, size }) => (
-									<Ionicons name="bookmarks" size={24} color={color} />
-								),
-							}}
-						></Tab.Screen>
-						<Tab.Screen
-							name="Settings"
-							component={Settings}
-							options={{
-								title: "تنظیمات",
-								tabBarIcon: ({ color, size }) => (
-									<Ionicons name="settings" size={28} color={color} />
-								),
-							}}
-						></Tab.Screen>
-					</Tab.Navigator>
-				</NavigationContainer>
-			</PaperProvider>
-		</>
+		<SafeAreaProvider>
+			<BottomNavigation
+				navigationState={{ index, routes }}
+				onIndexChange={setIndex}
+				renderScene={renderScene}
+			/>
+		</SafeAreaProvider>
 	);
-}
-AppRegistry.registerComponent(appName, () => App);
+};
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
-	},
-});
+export default App;
