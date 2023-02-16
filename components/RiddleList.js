@@ -10,11 +10,14 @@ function renderRiddleItem(itemData) {
 function RiddleList({ riddles }) {
 	return (
 		<View style={styles.container}>
-			<FlatList
-				data={riddles}
-				renderItem={renderRiddleItem}
-				keyExtractor={(item) => item.id}
-			></FlatList>
+			<View>
+				<FlatList
+					style={styles.innerContainer}
+					data={riddles}
+					renderItem={renderRiddleItem}
+					keyExtractor={(item) => item.id}
+				></FlatList>
+			</View>
 		</View>
 	);
 }
@@ -24,5 +27,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: colors.primary900,
+	},
+	innerContainer: {
+		marginTop: 30,
 	},
 });

@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		color: "white",
 		fontFamily: "Vazirmatn-Regular",
+		marginTop: 40,
 	},
 });
