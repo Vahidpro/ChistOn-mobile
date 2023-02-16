@@ -5,7 +5,7 @@ export const colors = {
 	primary400: "#0cc0f7",
 	primary500: "#007AF5",
 	primary700: "#066f89",
-	primary800: "#002952",
+	primary800: "#001350",
 	primary900: "#00071f",
 	accent500: "#0cc0f7",
 	error50: "#fcc4e4",
@@ -13,4 +13,5 @@ export const colors = {
 	gray100: "#b0b7ff",
 	gray500: "#39324a",
 	gray700: "#221c30",
+	gray800: "#002d52",
 };

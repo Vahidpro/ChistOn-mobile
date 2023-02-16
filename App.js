@@ -1,9 +1,10 @@
 import * as React from "react";
-import { BottomNavigation, Text } from "react-native-paper";
+import { BottomNavigation, Button, Text } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Favorites from "./screens/Favorites";
 import Settings from "./screens/Settings";
+import { colors } from "./constants/colors";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 
@@ -46,6 +47,10 @@ const App = () => {
 				navigationState={{ index, routes }}
 				onIndexChange={setIndex}
 				renderScene={renderScene}
+				shifting={true}
+				barStyle={{ backgroundColor: colors.primary800 }}
+				// activeColor="white"
+				inactiveColor={colors.gray100}
 			/>
 		</SafeAreaProvider>
 	);
