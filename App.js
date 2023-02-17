@@ -2,13 +2,14 @@ import * as React from "react";
 import { BottomNavigation, Button, Text } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Favorites from "./screens/Favorites";
 import Settings from "./screens/Settings";
 import { colors } from "./constants/colors";
+import { Provider as PaperProvider } from "react-native-paper";
+import Bookmarks from "./screens/Bookmarks";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 
-const BookmarksRoute = () => <Favorites></Favorites>;
+const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 
 const SettingsRoute = () => <Settings></Settings>;
 
@@ -16,10 +17,10 @@ const App = () => {
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
 		{
-			key: "settings",
-			title: "تنظیمات",
-			focusedIcon: "cog",
-			unfocusedIcon: "cog",
+			key: "riddles",
+			title: "چیستان‌ها",
+			focusedIcon: "head-question",
+			unfocusedIcon: "head-question-outline",
 		},
 		{
 			key: "bookmarks",
@@ -28,30 +29,32 @@ const App = () => {
 			unfocusedIcon: "bookmark-multiple-outline",
 		},
 		{
-			key: "riddles",
-			title: "چیستان‌ها",
-			focusedIcon: "head-question",
-			unfocusedIcon: "head-question-outline",
+			key: "settings",
+			title: "تنظیمات",
+			focusedIcon: "cog",
+			unfocusedIcon: "cog",
 		},
 	]);
 
 	const renderScene = BottomNavigation.SceneMap({
-		settings: AllRiddlesRoute,
+		riddles: AllRiddlesRoute,
+		settings: SettingsRoute,
 		bookmarks: BookmarksRoute,
-		riddles: SettingsRoute,
 	});
 
 	return (
 		<SafeAreaProvider>
-			<BottomNavigation
-				navigationState={{ index, routes }}
-				onIndexChange={setIndex}
-				renderScene={renderScene}
-				shifting={true}
-				barStyle={{ backgroundColor: colors.primary800 }}
-				// activeColor="white"
-				inactiveColor={colors.gray100}
-			/>
+			<PaperProvider>
+				<BottomNavigation
+					navigationState={{ index, routes }}
+					onIndexChange={setIndex}
+					renderScene={renderScene}
+					shifting={true}
+					barStyle={{ backgroundColor: colors.primary800 }}
+					// activeColor="white"
+					inactiveColor={colors.gray100}
+				/>
+			</PaperProvider>
 		</SafeAreaProvider>
 	);
 };
