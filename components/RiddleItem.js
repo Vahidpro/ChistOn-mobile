@@ -1,9 +1,37 @@
-import { StyleSheet, View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+	StyleSheet,
+	View,
+	TouchableOpacity,
+	Animated,
+	Text,
+} from "react-native";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
+import { colors } from "../constants/colors";
 
 function RiddleItem({ question, answer }) {
+	const ExpandableView = ({ expanded = false }) => {
+		const [height] = useState(new Animated.Value(0));
+
+		useEffect(() => {
+			Animated.timing(height, {
+				toValue: !expanded ? 90 : 0,
+				duration: 150,
+				useNativeDriver: false,
+			}).start();
+		}, [expanded, height]);
+
+		return (
+			<Animated.View style={{ height }}>
+				<View style={styles.container}>
+					<Text style={styles.answerText}>{answer}</Text>
+				</View>
+			</Animated.View>
+		);
+	};
+	const [isExpanded, setIsExpanded] = useState(true);
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
 		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
@@ -21,13 +49,35 @@ function RiddleItem({ question, answer }) {
 	return (
 		<View onLayout={onLayoutRootView} style={styles.container}>
 			<Text style={styles.questionText}>{question}</Text>
-			<Text style={styles.answerText}>{answer}</Text>
+			<View style={styles.answerButton}>
+				<TouchableOpacity
+					onPress={() => {
+						setIsExpanded(!isExpanded);
+					}}
+					style={styles.toggle}
+				>
+					<Text style={styles.questionText}>جواب</Text>
+				</TouchableOpacity>
+				<ExpandableView expanded={isExpanded} />
+			</View>
 		</View>
 	);
 }
 export default RiddleItem;
 
 const styles = StyleSheet.create({
+	toggle: {
+		width: 100,
+		height: 40,
+		backgroundColor: "#050052",
+		justifyContent: "center",
+		alignItems: "center",
+		borderRadius: 24,
+		textAlign: "center",
+	},
+	toggleText: {
+		color: "#fff",
+	},
 	container: {
 		flex: 1,
 		marginVertical: 15,
@@ -43,6 +93,11 @@ const styles = StyleSheet.create({
 		fontFamily: "Vazirmatn-Bold",
 		fontSize: 20,
 		textAlign: "center",
+		marginTop: 20,
+	},
+	answerButton: {
+		alignContent: "center",
+		alignItems: "center",
 		marginTop: 20,
 	},
 });

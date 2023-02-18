@@ -3,7 +3,7 @@ import { colors } from "../constants/colors";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
-function Bookmarks() {
+function Favorites() {
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
 		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
@@ -24,7 +24,7 @@ function Bookmarks() {
 		</View>
 	);
 }
-export default Bookmarks;
+export default Favorites;
 
 const styles = StyleSheet.create({
 	container: {
