@@ -17,7 +17,7 @@ function RiddleItem({ question, answer }) {
 
 		useEffect(() => {
 			Animated.timing(height, {
-				toValue: !expanded ? 90 : 0,
+				toValue: !expanded ? 100 : 0,
 				duration: 150,
 				useNativeDriver: false,
 			}).start();
@@ -67,7 +67,7 @@ export default RiddleItem;
 
 const styles = StyleSheet.create({
 	toggle: {
-		width: 100,
+		width: "100%",
 		height: 40,
 		backgroundColor: "#050052",
 		justifyContent: "center",
@@ -82,11 +82,16 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginVertical: 15,
 		marginHorizontal: 24,
+		backgroundColor: "#0d102b",
+		borderRadius: 24,
+		margin: 10,
 	},
 	questionText: {
 		color: "white",
 		fontFamily: "Vazirmatn-Regular",
 		fontSize: 18,
+		paddingHorizontal: 15,
+		marginTop: 10,
 	},
 	answerText: {
 		color: "#ffd000",
@@ -98,6 +103,9 @@ const styles = StyleSheet.create({
 	answerButton: {
 		alignContent: "center",
 		alignItems: "center",
-		marginTop: 20,
+		marginTop: 10,
+		marginHorizontal: 15,
+		marginBottom: 15,
+		padding: 10,
 	},
 });
