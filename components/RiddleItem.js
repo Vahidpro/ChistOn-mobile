@@ -18,7 +18,7 @@ function RiddleItem({ question, answer }) {
 		useEffect(() => {
 			Animated.timing(height, {
 				toValue: !expanded ? 100 : 0,
-				duration: 150,
+				duration: 400,
 				useNativeDriver: false,
 			}).start();
 		}, [expanded, height]);
