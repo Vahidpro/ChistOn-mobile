@@ -1,10 +1,13 @@
 import * as React from "react";
-import { BottomNavigation, Button, Text } from "react-native-paper";
+import { BottomNavigation } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Settings from "./screens/Settings";
 import { colors } from "./constants/colors";
-import { Provider as PaperProvider } from "react-native-paper";
+import {
+	Provider as PaperProvider,
+	MD3LightTheme as DefaultTheme,
+} from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
@@ -12,6 +15,15 @@ const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 
 const SettingsRoute = () => <Settings></Settings>;
+
+const theme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		primary: "tomato",
+		secondary: "yellow",
+	},
+};
 
 const App = () => {
 	const [index, setIndex] = React.useState(0);
@@ -44,7 +56,7 @@ const App = () => {
 
 	return (
 		<SafeAreaProvider>
-			<PaperProvider>
+			<PaperProvider theme={theme}>
 				<BottomNavigation
 					navigationState={{ index, routes }}
 					onIndexChange={setIndex}
@@ -53,6 +65,7 @@ const App = () => {
 					barStyle={{ backgroundColor: colors.primary800 }}
 					// activeColor="white"
 					inactiveColor={colors.gray100}
+					// renderLabel={{}}
 				/>
 			</PaperProvider>
 		</SafeAreaProvider>
