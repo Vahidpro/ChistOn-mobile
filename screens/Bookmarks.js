@@ -3,6 +3,7 @@ import { colors } from "../constants/colors";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
+import { ActivityIndicator, MD3Colors } from "react-native-paper";
 function Favorites() {
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
@@ -21,6 +22,12 @@ function Favorites() {
 	return (
 		<View onLayout={onLayoutRootView} style={styles.container}>
 			<Text style={styles.text}>✅ در نسخه های بعدی...</Text>
+			<ActivityIndicator
+				animating={true}
+				color={MD3Colors.error100}
+				size={50}
+				style={{ flex: 1 }}
+			></ActivityIndicator>
 		</View>
 	);
 }

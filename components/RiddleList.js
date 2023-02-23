@@ -2,14 +2,18 @@ import { FlatList, StyleSheet, View } from "react-native";
 import { colors } from "../constants/colors";
 import { RIDDLES } from "../data/riddles-data";
 import RiddleItem from "./RiddleItem";
+import { useTheme } from "react-native-paper";
 
 function renderRiddleItem(itemData) {
 	return <RiddleItem {...itemData.item}></RiddleItem>;
 }
 
 function RiddleList({ riddles }) {
+	const theme = useTheme();
 	return (
-		<View style={styles.container}>
+		<View
+			style={[styles.container, { backgroundColor: theme.colors.background }]}
+		>
 			<View>
 				<FlatList
 					style={styles.innerContainer}
@@ -26,7 +30,6 @@ export default RiddleList;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.primary900,
 	},
 	innerContainer: {
 		marginTop: 30,
