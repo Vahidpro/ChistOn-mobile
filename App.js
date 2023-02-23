@@ -6,7 +6,7 @@ import Settings from "./screens/Settings";
 import { colors } from "./constants/colors";
 import {
 	Provider as PaperProvider,
-	MD3LightTheme as DefaultTheme,
+	MD3DarkTheme as DefaultTheme,
 } from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
 

@@ -10,8 +10,10 @@ import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { colors } from "../constants/colors";
+import { useTheme } from "react-native-paper";
 
 function RiddleItem({ question, answer }) {
+	const theme = useTheme();
 	const ExpandableView = ({ expanded = false }) => {
 		const [height] = useState(new Animated.Value(0));
 
@@ -25,7 +27,7 @@ function RiddleItem({ question, answer }) {
 
 		return (
 			<Animated.View style={{ height }}>
-				<View style={styles.container}>
+				<View style={[styles.container]}>
 					<Text style={styles.answerText}>{answer}</Text>
 				</View>
 			</Animated.View>
