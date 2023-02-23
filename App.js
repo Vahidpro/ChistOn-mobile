@@ -9,6 +9,7 @@ import {
 	MD3DarkTheme as DefaultTheme,
 } from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
+import { StatusBar } from "expo-status-bar";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 
@@ -56,6 +57,7 @@ const App = () => {
 
 	return (
 		<SafeAreaProvider>
+			<StatusBar style="light"></StatusBar>
 			<PaperProvider theme={theme}>
 				<BottomNavigation
 					navigationState={{ index, routes }}
