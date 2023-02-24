@@ -11,6 +11,9 @@ import {
 import Bookmarks from "./screens/Bookmarks";
 import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
+import { StyleSheet } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
@@ -83,6 +86,20 @@ const App = () => {
 			unfocusedIcon: "cog",
 		},
 	]);
+	// Load Fonts
+	const [fontsLoaded] = useFonts({
+		"Vazirmatn-Regular": require("./assets/fonts/Vazirmatn-Regular.ttf"),
+		"Vazirmatn-Bold": require("./assets/fonts/Vazirmatn-Bold.ttf"),
+	});
+	const onLayoutRootView = React.useCallback(async () => {
+		if (fontsLoaded) {
+			await SplashScreen.hideAsync();
+		}
+	}, [fontsLoaded]);
+
+	if (!fontsLoaded) {
+		return null;
+	}
 
 	const renderScene = BottomNavigation.SceneMap({
 		riddles: AllRiddlesRoute,
@@ -100,9 +117,13 @@ const App = () => {
 						onIndexChange={setIndex}
 						renderScene={renderScene}
 						shifting={true}
-						barStyle={{ backgroundColor: colors.primary800 }}
+						barStyle={{
+							backgroundColor: theme.colors.surface,
+						}}
 						activeColor="white"
 						inactiveColor={colors.gray100}
+						style={{ fontFamily: "Vazirmatn-Regular" }}
+						onLayout={onLayoutRootView}
 					/>
 				</PaperProvider>
 			</BookmarksContextProvider>
@@ -111,3 +132,11 @@ const App = () => {
 };
 
 export default App;
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+	text: {
+		fontFamily: "Vazirmatn-Regular",
+	},
+});

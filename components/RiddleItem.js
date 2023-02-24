@@ -9,7 +9,7 @@ import {
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import { Button, IconButton, MD3Colors, useTheme } from "react-native-paper";
+import { Button, IconButton, useTheme } from "react-native-paper";
 
 function RiddleItem({ question, answer }) {
 	const theme = useTheme();
