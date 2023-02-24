@@ -9,8 +9,12 @@ export const BookmarksContext = createContext({
 function BookmarksContextProvider({ children }) {
 	const [riddleIds, setRiddleIds] = useState([]);
 
-	function addBookmark(id) {}
-	function removeBookmark(id) {}
+	function addBookmark(id) {
+		setRiddleIds((curId) => [...curId, id]);
+	}
+	function removeBookmark(id) {
+		setRiddleIds((curId) => curId.filter((riddleId) => riddleId !== id));
+	}
 
 	const value = {
 		ids: riddleIds,

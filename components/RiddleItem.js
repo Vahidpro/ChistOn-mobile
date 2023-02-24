@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import {
-	StyleSheet,
-	View,
-	TouchableOpacity,
-	Animated,
-	Text,
-} from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { StyleSheet, View, Animated, Text } from "react-native";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { Button, IconButton, useTheme } from "react-native-paper";
+import { BookmarksContext } from "../store/bookmarks-context";
 
-function RiddleItem({ question, answer }) {
+function RiddleItem({ question, answer, id }) {
+	const bookmarkRiddlesCtx = useContext(BookmarksContext);
+	const riddleId = id;
+
 	const theme = useTheme();
+
+	// Expand
 	const ExpandableView = ({ expanded = false }) => {
 		const [height] = useState(new Animated.Value(0));
 
@@ -33,6 +33,8 @@ function RiddleItem({ question, answer }) {
 		);
 	};
 	const [isExpanded, setIsExpanded] = useState(true);
+
+	// Fonts
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
 		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
@@ -47,7 +49,15 @@ function RiddleItem({ question, answer }) {
 		return null;
 	}
 
-	function bookmarkPressHandler() {}
+	const riddleIsBookmarked = bookmarkRiddlesCtx.ids.includes(riddleId);
+
+	function bookmarkPressHandler() {
+		if (riddleIsBookmarked) {
+			bookmarkRiddlesCtx.removeBookmark(riddleId);
+		} else {
+			bookmarkRiddlesCtx.addBookmark(riddleId);
+		}
+	}
 
 	return (
 		<View
@@ -59,7 +69,7 @@ function RiddleItem({ question, answer }) {
 			</Text>
 			{/* Bookmark Button */}
 			<IconButton
-				icon="bookmark-outline"
+				icon={riddleIsBookmarked ? "bookmark" : "bookmark-outline"}
 				mode="contained"
 				size={28}
 				animated={true}
