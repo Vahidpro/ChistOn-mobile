@@ -68,7 +68,7 @@ function RiddleItem({ question, answer }) {
 			></IconButton>
 			<View style={styles.answerButton}>
 				<Button
-					icon="chevron-down"
+					icon="eye-outline"
 					mode="contained-tonal"
 					buttonColor={theme.colors.primaryContainer}
 					onPress={() => {
@@ -76,15 +76,19 @@ function RiddleItem({ question, answer }) {
 					}}
 					contentStyle={{
 						width: "100%",
-						flexDirection: "row-reverse",
+						height: 46,
+						padding: 0,
 					}}
 					labelStyle={{
 						fontFamily: "Vazirmatn-Bold",
-						fontSize: 18,
+						fontSize: 16,
 						justifyContent: "center",
+						// alignItems: "center",
+						// alignSelf: "center",
+						// alignContent: "center",
 					}}
 				>
-					جواب
+					نمایش جواب
 				</Button>
 				<ExpandableView expanded={isExpanded} />
 			</View>
@@ -115,7 +119,6 @@ const styles = StyleSheet.create({
 	answerButton: {
 		alignContent: "center",
 		alignItems: "center",
-		marginTop: 10,
 		marginBottom: 15,
 		padding: 10,
 	},
