@@ -8,6 +8,8 @@ function renderRiddleItem(itemData) {
 
 function RiddleList({ riddles }) {
 	const theme = useTheme();
+
+
 	return (
 		<View
 			style={[styles.container, { backgroundColor: theme.colors.background }]}

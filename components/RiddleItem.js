@@ -5,7 +5,6 @@ import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { Button, IconButton, useTheme } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function RiddleItem({ question, answer, id }) {
 	const bookmarkRiddlesCtx = useContext(BookmarksContext);
@@ -52,21 +51,11 @@ function RiddleItem({ question, answer, id }) {
 
 	const riddleIsBookmarked = bookmarkRiddlesCtx.ids.includes(riddleId);
 
-	const storeData = async (riddleId) => {
-		try {
-			await AsyncStorage.setItem("@riddles", riddleId.toString());
-			console.log("saved!");
-		} catch (e) {
-			console.log(e);
-		}
-	};
-
 	function bookmarkPressHandler() {
 		if (riddleIsBookmarked) {
 			bookmarkRiddlesCtx.removeBookmark(riddleId);
 		} else {
 			bookmarkRiddlesCtx.addBookmark(riddleId);
-			storeData(riddleId);
 		}
 	}
 
