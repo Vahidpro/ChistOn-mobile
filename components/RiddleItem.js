@@ -9,7 +9,7 @@ import {
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import { IconButton, MD3Colors, useTheme } from "react-native-paper";
+import { Button, IconButton, MD3Colors, useTheme } from "react-native-paper";
 
 function RiddleItem({ question, answer }) {
 	const theme = useTheme();
@@ -57,6 +57,7 @@ function RiddleItem({ question, answer }) {
 			<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
 				{question}
 			</Text>
+			{/* Bookmark Button */}
 			<IconButton
 				icon="bookmark-outline"
 				mode="contained"
@@ -66,21 +67,25 @@ function RiddleItem({ question, answer }) {
 				onPress={bookmarkPressHandler}
 			></IconButton>
 			<View style={styles.answerButton}>
-				<TouchableOpacity
+				<Button
+					icon="chevron-down"
+					mode="contained-tonal"
+					buttonColor={theme.colors.primaryContainer}
 					onPress={() => {
 						setIsExpanded(!isExpanded);
 					}}
-					style={styles.toggle}
+					contentStyle={{
+						width: "100%",
+						flexDirection: "row-reverse",
+					}}
+					labelStyle={{
+						fontFamily: "Vazirmatn-Bold",
+						fontSize: 18,
+						justifyContent: "center",
+					}}
 				>
-					<Text
-						style={{
-							color: theme.colors.secondary,
-							fontFamily: "Vazirmatn-Regular",
-						}}
-					>
-						جواب
-					</Text>
-				</TouchableOpacity>
+					جواب
+				</Button>
 				<ExpandableView expanded={isExpanded} />
 			</View>
 		</View>
@@ -89,22 +94,8 @@ function RiddleItem({ question, answer }) {
 export default RiddleItem;
 
 const styles = StyleSheet.create({
-	toggle: {
-		width: "100%",
-		height: 40,
-		backgroundColor: "#050052",
-		justifyContent: "center",
-		alignItems: "center",
-		borderRadius: 24,
-		textAlign: "center",
-	},
-	toggleText: {
-		color: "#fff",
-	},
 	container: {
 		flex: 1,
-		marginVertical: 15,
-		marginHorizontal: 24,
 		borderRadius: 24,
 		margin: 10,
 	},
@@ -125,7 +116,6 @@ const styles = StyleSheet.create({
 		alignContent: "center",
 		alignItems: "center",
 		marginTop: 10,
-		marginHorizontal: 15,
 		marginBottom: 15,
 		padding: 10,
 	},
