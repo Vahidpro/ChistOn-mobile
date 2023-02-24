@@ -7,7 +7,6 @@ import { BookmarksContext } from "../store/bookmarks-context";
 import { RIDDLES } from "../data/riddles-data";
 import RiddleList from "../components/RiddleList";
 import { useTheme } from "react-native-paper";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function BookmarksScreen() {
 	const theme = useTheme();
@@ -17,19 +16,6 @@ function BookmarksScreen() {
 		bookmarkRiddlesCtx.ids.includes(riddle.id)
 	);
 
-	const storeData = async () => {
-		try {
-			const jsonBookmarks = JSON.stringify(bookmarkedRiddles);
-			await AsyncStorage.setItem("@riddles", jsonBookmarks);
-			console.log("saved!");
-			console.log(jsonBookmarks);
-		} catch (e) {
-			console.log(e);
-		}
-	};
-	useEffect(() => {
-		storeData();
-	}, []);
 	// Fonts
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),

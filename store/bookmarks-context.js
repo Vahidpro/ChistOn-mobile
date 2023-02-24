@@ -10,11 +10,25 @@ export const BookmarksContext = createContext({
 function BookmarksContextProvider({ children }) {
 	const [riddleIds, setRiddleIds] = useState([]);
 
+	const getData = async () => {
+		try {
+			const restoredRiddles = await AsyncStorage.getItem("@riddles");
+			if (restoredRiddles !== null) {
+				let restoredRiddlesToArray = JSON.parse(restoredRiddles);
+				setRiddleIds(restoredRiddlesToArray);
+			}
+		} catch (e) {
+			// error reading value
+		}
+	};
+	useEffect(() => {
+		getData();
+	}, []);
+
 	const storeData = async (id) => {
 		try {
 			const jsonBookmarks = JSON.stringify([...riddleIds, id]);
 			await AsyncStorage.setItem("@riddles", jsonBookmarks);
-			console.log("saved!" + jsonBookmarks);
 		} catch (e) {
 			console.log(e);
 		}

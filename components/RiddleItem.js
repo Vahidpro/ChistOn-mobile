@@ -6,32 +6,33 @@ import * as SplashScreen from "expo-splash-screen";
 import { Button, IconButton, useTheme } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
 
+// Expand
+const ExpandableView = React.memo(({ expanded = false, answer }) => {
+	const [height] = useState(new Animated.Value(0));
+
+	useEffect(() => {
+		Animated.timing(height, {
+			toValue: !expanded ? 100 : 0,
+			duration: 400,
+			useNativeDriver: false,
+		}).start();
+	}, [expanded, height]);
+
+	return (
+		<Animated.View style={{ height }}>
+			<View style={styles.container}>
+				<Text style={styles.answerText}>{answer}</Text>
+			</View>
+		</Animated.View>
+	);
+});
+
 function RiddleItem({ question, answer, id }) {
 	const bookmarkRiddlesCtx = useContext(BookmarksContext);
 	const riddleId = id;
 
 	const theme = useTheme();
 
-	// Expand
-	const ExpandableView = ({ expanded = false }) => {
-		const [height] = useState(new Animated.Value(0));
-
-		useEffect(() => {
-			Animated.timing(height, {
-				toValue: !expanded ? 100 : 0,
-				duration: 400,
-				useNativeDriver: false,
-			}).start();
-		}, [expanded, height]);
-
-		return (
-			<Animated.View style={{ height }}>
-				<View style={styles.container}>
-					<Text style={styles.answerText}>{answer}</Text>
-				</View>
-			</Animated.View>
-		);
-	};
 	const [isExpanded, setIsExpanded] = useState(true);
 
 	// Fonts
@@ -100,7 +101,7 @@ function RiddleItem({ question, answer, id }) {
 				>
 					نمایش جواب
 				</Button>
-				<ExpandableView expanded={isExpanded} />
+				<ExpandableView answer={answer} expanded={isExpanded} />
 			</View>
 		</View>
 	);
