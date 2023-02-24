@@ -3,12 +3,13 @@ import { colors } from "../constants/colors";
 import { useFonts } from "expo-font";
 import { useCallback, useContext } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import { ActivityIndicator, MD3Colors } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
 import { RIDDLES } from "../data/riddles-data";
 import RiddleList from "../components/RiddleList";
+import { useTheme } from "react-native-paper";
 
-function Favorites() {
+function BookmarksScreen() {
+	const theme = useTheme();
 	const bookmarkRiddlesCtx = useContext(BookmarksContext);
 
 	const bookmarkedRiddles = RIDDLES.filter((riddle) =>
@@ -35,7 +36,9 @@ function Favorites() {
 	if (bookmarkedRiddles.length === 0) {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.text}>هنوز هیچ چیستانی رو نشان نکردی! 🤷</Text>
+				<Text style={[styles.text, { color: theme.colors.primary }]}>
+					هنوز هیچ چیستانی رو نشان نکردی! 🤷
+				</Text>
 			</View>
 		);
 	}
@@ -46,13 +49,12 @@ function Favorites() {
 		</>
 	);
 }
-export default Favorites;
+export default BookmarksScreen;
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: colors.primary900,
-		color: "white",
 		fontFamily: "Vazirmatn-Regular",
 		justifyContent: "center",
 		alignItems: "center",
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
 		marginVertical: 15,
 		marginHorizontal: 24,
 		fontSize: 18,
-		color: "white",
 		fontFamily: "Vazirmatn-Regular",
 		marginTop: 40,
 	},
