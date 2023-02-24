@@ -9,7 +9,7 @@ import {
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import { useTheme } from "react-native-paper";
+import { IconButton, MD3Colors, useTheme } from "react-native-paper";
 
 function RiddleItem({ question, answer }) {
 	const theme = useTheme();
@@ -50,6 +50,13 @@ function RiddleItem({ question, answer }) {
 	return (
 		<View onLayout={onLayoutRootView} style={styles.container}>
 			<Text style={styles.questionText}>{question}</Text>
+			<IconButton
+				icon="bookmark-outline"
+				mode="contained"
+				size={28}
+				animated={true}
+				accessibilityLabel="bookmark"
+			></IconButton>
 			<View style={styles.answerButton}>
 				<TouchableOpacity
 					onPress={() => {

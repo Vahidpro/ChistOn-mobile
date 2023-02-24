@@ -24,3 +24,5 @@ function BookmarksContextProvider({ children }) {
 		</BookmarksContext.Provider>
 	);
 }
+
+export default BookmarksContextProvider;

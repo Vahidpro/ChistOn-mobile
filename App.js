@@ -10,6 +10,7 @@ import {
 } from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
 import { StatusBar } from "expo-status-bar";
+import BookmarksContextProvider from "./store/bookmarks-context";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
@@ -92,17 +93,19 @@ const App = () => {
 	return (
 		<SafeAreaProvider>
 			<StatusBar style="light"></StatusBar>
-			<PaperProvider theme={theme}>
-				<BottomNavigation
-					navigationState={{ index, routes }}
-					onIndexChange={setIndex}
-					renderScene={renderScene}
-					shifting={true}
-					barStyle={{ backgroundColor: colors.primary800 }}
-					activeColor="white"
-					inactiveColor={colors.gray100}
-				/>
-			</PaperProvider>
+			<BookmarksContextProvider>
+				<PaperProvider theme={theme}>
+					<BottomNavigation
+						navigationState={{ index, routes }}
+						onIndexChange={setIndex}
+						renderScene={renderScene}
+						shifting={true}
+						barStyle={{ backgroundColor: colors.primary800 }}
+						activeColor="white"
+						inactiveColor={colors.gray100}
+					/>
+				</PaperProvider>
+			</BookmarksContextProvider>
 		</SafeAreaProvider>
 	);
 };
