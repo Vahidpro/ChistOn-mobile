@@ -26,7 +26,7 @@ function RiddleItem({ question, answer }) {
 
 		return (
 			<Animated.View style={{ height }}>
-				<View style={[styles.container]}>
+				<View style={styles.container}>
 					<Text style={styles.answerText}>{answer}</Text>
 				</View>
 			</Animated.View>
@@ -50,8 +50,13 @@ function RiddleItem({ question, answer }) {
 	function bookmarkPressHandler() {}
 
 	return (
-		<View onLayout={onLayoutRootView} style={styles.container}>
-			<Text style={styles.questionText}>{question}</Text>
+		<View
+			onLayout={onLayoutRootView}
+			style={[styles.container, { backgroundColor: theme.colors.onSecondary }]}
+		>
+			<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
+				{question}
+			</Text>
 			<IconButton
 				icon="bookmark-outline"
 				mode="contained"
@@ -67,7 +72,14 @@ function RiddleItem({ question, answer }) {
 					}}
 					style={styles.toggle}
 				>
-					<Text style={styles.questionText}>جواب</Text>
+					<Text
+						style={{
+							color: theme.colors.secondary,
+							fontFamily: "Vazirmatn-Regular",
+						}}
+					>
+						جواب
+					</Text>
 				</TouchableOpacity>
 				<ExpandableView expanded={isExpanded} />
 			</View>
@@ -93,12 +105,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginVertical: 15,
 		marginHorizontal: 24,
-		backgroundColor: "#0d102b",
 		borderRadius: 24,
 		margin: 10,
 	},
 	questionText: {
-		color: "white",
 		fontFamily: "Vazirmatn-Regular",
 		fontSize: 18,
 		paddingHorizontal: 15,
