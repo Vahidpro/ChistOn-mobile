@@ -124,6 +124,8 @@ const App = () => {
 						inactiveColor={colors.gray100}
 						style={{ fontFamily: "Vazirmatn-Regular" }}
 						onLayout={onLayoutRootView}
+						sceneAnimationEnabled={true}
+						sceneAnimationType="shifting"
 					/>
 				</PaperProvider>
 			</BookmarksContextProvider>
