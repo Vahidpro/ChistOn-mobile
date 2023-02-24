@@ -47,6 +47,8 @@ function RiddleItem({ question, answer }) {
 		return null;
 	}
 
+	function bookmarkPressHandler() {}
+
 	return (
 		<View onLayout={onLayoutRootView} style={styles.container}>
 			<Text style={styles.questionText}>{question}</Text>
@@ -56,6 +58,7 @@ function RiddleItem({ question, answer }) {
 				size={28}
 				animated={true}
 				accessibilityLabel="bookmark"
+				onPress={bookmarkPressHandler}
 			></IconButton>
 			<View style={styles.answerButton}>
 				<TouchableOpacity
