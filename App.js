@@ -12,9 +12,7 @@ import Bookmarks from "./screens/Bookmarks";
 import { StatusBar } from "expo-status-bar";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
-
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
-
 const SettingsRoute = () => <Settings></Settings>;
 
 const theme = {
@@ -101,9 +99,8 @@ const App = () => {
 					renderScene={renderScene}
 					shifting={true}
 					barStyle={{ backgroundColor: colors.primary800 }}
-					// activeColor="white"
+					activeColor="white"
 					inactiveColor={colors.gray100}
-					// renderLabel={{}}
 				/>
 			</PaperProvider>
 		</SafeAreaProvider>

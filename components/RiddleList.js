@@ -1,6 +1,4 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import { colors } from "../constants/colors";
-import { RIDDLES } from "../data/riddles-data";
 import RiddleItem from "./RiddleItem";
 import { useTheme } from "react-native-paper";
 
