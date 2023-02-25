@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../constants/colors";
 import { useFonts } from "expo-font";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
+import { Switch, useTheme } from "react-native-paper";
 function Settings() {
+	const [isSwitchOn, setIsSwitchOn] = useState(true);
+	const theme = useTheme();
 	const [fontsLoaded] = useFonts({
 		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
 		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
@@ -18,9 +21,17 @@ function Settings() {
 		return null;
 	}
 
+	const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+
 	return (
-		<View onLayout={onLayoutRootView} style={styles.container}>
-			<Text style={styles.text}>✅ در نسخه های بعدی...</Text>
+		<View
+			style={[
+				styles.container,
+				{ backgroundColor: theme.colors.surfaceVariant },
+			]}
+		>
+			<Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+			<Text style={styles.text}>حالت تاریک</Text>
 		</View>
 	);
 }
@@ -28,19 +39,18 @@ export default Settings;
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: colors.primary900,
-		color: "white",
-		fontFamily: "Vazirmatn-Regular",
+		marginTop: 80,
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignContent: "flex-end",
+		alignItems: "center",
+		height: 60,
+		borderRadius: 12,
+		paddingHorizontal: 15,
 	},
 	text: {
-		flex: 1,
-		backgroundColor: colors.primary900,
-		marginVertical: 15,
-		marginHorizontal: 24,
-		fontSize: 18,
-		color: "white",
 		fontFamily: "Vazirmatn-Regular",
-		marginTop: 40,
+		color: "white",
+		fontSize: 18,
 	},
 });

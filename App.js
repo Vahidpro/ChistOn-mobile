@@ -11,7 +11,7 @@ import {
 import Bookmarks from "./screens/Bookmarks";
 import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
-import { StyleSheet } from "react-native";
+import { StyleSheet, useColorScheme } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 
@@ -64,7 +64,28 @@ const theme = {
 		backdrop: "rgba(48, 48, 56, 0.4)",
 	},
 };
+
+const darkTheme = {
+	...DefaultTheme,
+	roundness: 2,
+	colors: {
+		...DefaultTheme.colors,
+		primary: "#1A1A1A",
+		accent: "#FAFAFA",
+	},
+};
+
+const lightTheme = {
+	...DefaultTheme,
+	roundness: 2,
+	colors: {
+		...DefaultTheme.colors,
+		primary: "#FAFAFA",
+		accent: "#1A1A1A",
+	},
+};
 const App = () => {
+	const scheme = useColorScheme();
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
 		{
