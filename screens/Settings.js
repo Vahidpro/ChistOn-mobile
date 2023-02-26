@@ -27,7 +27,7 @@ function Settings() {
 		<View
 			style={[
 				styles.container,
-				{ backgroundColor: theme.colors.surfaceVariant },
+				{ backgroundColor: theme.colors.secondaryContainer },
 			]}
 		>
 			<Switch value={isSwitchOn} onValueChange={onToggleSwitch} />

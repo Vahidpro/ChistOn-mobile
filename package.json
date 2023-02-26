@@ -13,6 +13,7 @@
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/material-bottom-tabs": "^6.2.13",
     "@react-navigation/native": "^6.1.2",
+    "deepmerge": "^4.3.0",
     "expo": "~47.0.12",
     "expo-font": "~11.0.1",
     "expo-splash-screen": "~0.17.5",
