@@ -25,11 +25,6 @@ const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 const SettingsRoute = () => <Settings></Settings>;
 
-// const { LightTheme, DarkTheme } = adaptNavigationTheme({
-// 	light: NavigationDefaultTheme,
-// 	dark: NavigationDarkTheme,
-// });
-
 // const CombinedDefaultTheme = merge(MD3DarkTheme, LightTheme);
 // const CombinedDarkTheme = merge(MD3LightTheme, DarkTheme);
 const theme = {
@@ -120,6 +115,11 @@ const App = () => {
 		settings: SettingsRoute,
 		bookmarks: BookmarksRoute,
 	});
+
+	// const { LightTheme, DarkTheme } = adaptNavigationTheme({
+	// 	light: NavigationDefaultTheme,
+	// 	dark: NavigationDarkTheme,
+	// });
 
 	return (
 		<SafeAreaProvider>
