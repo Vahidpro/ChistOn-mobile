@@ -187,6 +187,56 @@ export const RIDDLES = [
 		question: "ورزشکاران برای شکستنش جایزه می گیرند!",
 		answer: "رکورد",
 	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
+	{
+		id: (id += 1),
+		question: "",
+		answer: "",
+	},
 	// {
 	// 	id: (id += 1),
 	// 	question: "",

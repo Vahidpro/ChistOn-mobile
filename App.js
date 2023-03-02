@@ -13,13 +13,13 @@ import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
-import {
-	NavigationContainer,
-	DarkTheme as NavigationDarkTheme,
-	DefaultTheme as NavigationDefaultTheme,
-} from "@react-navigation/native";
-import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
-import merge from "deepmerge";
+// import {
+// 	NavigationContainer,
+// 	DarkTheme as NavigationDarkTheme,
+// 	DefaultTheme as NavigationDefaultTheme,
+// } from "@react-navigation/native";
+// import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
+// import merge from "deepmerge";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
@@ -29,6 +29,8 @@ const SettingsRoute = () => <Settings></Settings>;
 // const CombinedDarkTheme = merge(MD3LightTheme, DarkTheme);
 const theme = {
 	...DefaultTheme,
+	roundness: 3,
+
 	colors: {
 		primary: "rgb(191, 194, 255)",
 		onPrimary: "rgb(24, 29, 140)",
@@ -73,6 +75,10 @@ const theme = {
 	},
 };
 
+// const { LightTheme, DarkTheme } = adaptNavigationTheme({
+// 	light: NavigationDefaultTheme,
+// 	dark: NavigationDarkTheme,
+// });
 const App = () => {
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
@@ -115,11 +121,6 @@ const App = () => {
 		settings: SettingsRoute,
 		bookmarks: BookmarksRoute,
 	});
-
-	// const { LightTheme, DarkTheme } = adaptNavigationTheme({
-	// 	light: NavigationDefaultTheme,
-	// 	dark: NavigationDarkTheme,
-	// });
 
 	return (
 		<SafeAreaProvider>
