@@ -30,16 +30,26 @@ const SettingsRoute = () => <Settings></Settings>;
 const App = () => {
 	const colorScheme = useColorScheme();
 	const isDarkMode = colorScheme === "dark";
+	console.log(colorScheme);
 
-	const theme = {
-		...DefaultTheme,
-		roundness: 3,
+	const theme = isDarkMode
+		? {
+				...DefaultTheme,
+				roundness: 3,
 
-		colors: {
-			...DefaultTheme.colors,
-			background: "#00071f",
-		},
-	};
+				colors: {
+					...DefaultTheme.colors,
+					background: "#00071f",
+				},
+		  }
+		: {
+				MD3LightTheme,
+				roundness: 3,
+				colors: {
+					...MD3LightTheme.colors,
+					background: "#83a0ff",
+				},
+		  };
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
@@ -96,7 +106,7 @@ const App = () => {
 						barStyle={{
 							backgroundColor: theme.colors.surface,
 						}}
-						activeColor="white"
+						activeColor={theme.colors.onPrimaryContainer}
 						inactiveColor={colors.gray100}
 						style={{ fontFamily: "Vazirmatn-Regular" }}
 						onLayout={onLayoutRootView}

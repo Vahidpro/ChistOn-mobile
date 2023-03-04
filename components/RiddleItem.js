@@ -63,20 +63,26 @@ function RiddleItem({ question, answer, id }) {
 	return (
 		<View
 			onLayout={onLayoutRootView}
-			style={[styles.container, { backgroundColor: theme.colors.onSecondary }]}
+			style={[
+				styles.container,
+				{ backgroundColor: theme.colors.secondaryContainer },
+			]}
 		>
 			<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
 				{question}
 			</Text>
 			{/* Bookmark Button */}
-			<IconButton
-				icon={riddleIsBookmarked ? "bookmark" : "bookmark-outline"}
-				mode="contained"
-				size={28}
-				animated={true}
-				accessibilityLabel="bookmark"
-				onPress={bookmarkPressHandler}
-			></IconButton>
+			<View>
+				<IconButton
+					style={{ backgroundColor: theme.colors.onSecondary }}
+					icon={riddleIsBookmarked ? "bookmark" : "bookmark-outline"}
+					mode="contained"
+					size={28}
+					animated={true}
+					accessibilityLabel="bookmark"
+					onPress={bookmarkPressHandler}
+				></IconButton>
+			</View>
 			<View style={styles.answerButton}>
 				<Button
 					icon="eye-outline"
