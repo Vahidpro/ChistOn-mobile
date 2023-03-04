@@ -36,7 +36,7 @@ function BookmarksScreen() {
 	if (bookmarkedRiddles.length === 0) {
 		return (
 			<View style={styles.container}>
-				<Text style={[styles.text, { color: theme.colors.primary }]}>
+				<Text style={[styles.text, { color: theme.colors.onPrimaryContainer }]}>
 					هنوز هیچ چیستانی رو نشان نکردی! 🤷
 				</Text>
 			</View>
@@ -53,13 +53,11 @@ export default BookmarksScreen;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.primary900,
 		fontFamily: "Vazirmatn-Regular",
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	text: {
-		backgroundColor: colors.primary900,
 		marginVertical: 15,
 		marginHorizontal: 24,
 		fontSize: 18,
