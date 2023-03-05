@@ -45,7 +45,7 @@ const App = () => {
 		[toggleTheme, isThemeDark]
 	);
 
-	const theme = !isThemeDark
+	const theme = isThemeDark
 		? {
 				...DefaultTheme,
 				roundness: 3,
@@ -63,26 +63,6 @@ const App = () => {
 					background: "#83a0ff",
 				},
 		  };
-
-	//   theme objects
-	const { DarkTheme, LightTheme } =
-		({
-			...DefaultTheme,
-			roundness: 3,
-
-			colors: {
-				...DefaultTheme.colors,
-				background: "#00071f",
-			},
-		},
-		{
-			MD3LightTheme,
-			roundness: 3,
-			colors: {
-				...MD3LightTheme.colors,
-				background: "#83a0ff",
-			},
-		});
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
