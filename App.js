@@ -22,17 +22,30 @@ import {
 import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
 import merge from "deepmerge";
 import { useColorScheme } from "react-native";
+import { PreferencesContext } from "./store/PreferencesContext";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
+	const [isThemeDark, setIsThemeDark] = React.useState(false);
 	const colorScheme = useColorScheme();
-	const isDarkMode = colorScheme === "dark";
-	console.log(colorScheme);
+	// const isDarkMode = colorScheme === "dark";
+	// console.log(colorScheme);
+	const toggleTheme = React.useCallback(() => {
+		return setIsThemeDark(!isThemeDark);
+	}, [isThemeDark]);
 
-	const theme = !isDarkMode
+	const preferences = React.useMemo(
+		() => ({
+			toggleTheme,
+			isThemeDark,
+		}),
+		[toggleTheme, isThemeDark]
+	);
+
+	const theme = !isThemeDark
 		? {
 				...DefaultTheme,
 				roundness: 3,
@@ -50,6 +63,26 @@ const App = () => {
 					background: "#83a0ff",
 				},
 		  };
+
+	//   theme objects
+	const { DarkTheme, LightTheme } =
+		({
+			...DefaultTheme,
+			roundness: 3,
+
+			colors: {
+				...DefaultTheme.colors,
+				background: "#00071f",
+			},
+		},
+		{
+			MD3LightTheme,
+			roundness: 3,
+			colors: {
+				...MD3LightTheme.colors,
+				background: "#83a0ff",
+			},
+		});
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
@@ -96,25 +129,27 @@ const App = () => {
 	return (
 		<SafeAreaProvider>
 			<StatusBar style="light"></StatusBar>
-			<BookmarksContextProvider>
-				<PaperProvider theme={theme}>
-					<BottomNavigation
-						navigationState={{ index, routes }}
-						onIndexChange={setIndex}
-						renderScene={renderScene}
-						shifting={true}
-						barStyle={{
-							backgroundColor: theme.colors.surface,
-						}}
-						activeColor={theme.colors.onPrimaryContainer}
-						inactiveColor={colors.gray100}
-						style={{ fontFamily: "Vazirmatn-Regular" }}
-						onLayout={onLayoutRootView}
-						sceneAnimationEnabled={true}
-						sceneAnimationType="shifting"
-					/>
-				</PaperProvider>
-			</BookmarksContextProvider>
+			<PreferencesContext.Provider value={preferences}>
+				<BookmarksContextProvider>
+					<PaperProvider theme={theme}>
+						<BottomNavigation
+							navigationState={{ index, routes }}
+							onIndexChange={setIndex}
+							renderScene={renderScene}
+							shifting={true}
+							barStyle={{
+								backgroundColor: theme.colors.surface,
+							}}
+							activeColor={theme.colors.onPrimaryContainer}
+							inactiveColor={colors.gray100}
+							style={{ fontFamily: "Vazirmatn-Regular" }}
+							onLayout={onLayoutRootView}
+							sceneAnimationEnabled={true}
+							sceneAnimationType="shifting"
+						/>
+					</PaperProvider>
+				</BookmarksContextProvider>
+			</PreferencesContext.Provider>
 		</SafeAreaProvider>
 	);
 };
