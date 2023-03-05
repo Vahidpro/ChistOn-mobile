@@ -32,7 +32,7 @@ const App = () => {
 	const isDarkMode = colorScheme === "dark";
 	console.log(colorScheme);
 
-	const theme = isDarkMode
+	const theme = !isDarkMode
 		? {
 				...DefaultTheme,
 				roundness: 3,

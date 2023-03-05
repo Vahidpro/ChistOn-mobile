@@ -27,11 +27,13 @@ function Settings() {
 		<View
 			style={[
 				styles.container,
-				{ backgroundColor: theme.colors.secondaryContainer },
+				{ backgroundColor: theme.colors.primaryContainer },
 			]}
 		>
 			<Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-			<Text style={styles.text}>حالت تاریک</Text>
+			<Text style={[styles.text, { color: theme.colors.onPrimaryContainer }]}>
+				حالت تاریک
+			</Text>
 		</View>
 	);
 }
@@ -50,7 +52,6 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontFamily: "Vazirmatn-Regular",
-		color: "white",
 		fontSize: 18,
 	},
 });
