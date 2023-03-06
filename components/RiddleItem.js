@@ -102,7 +102,7 @@ function RiddleItem({ question, answer, id }) {
 						justifyContent: "center",
 					}}
 				>
-					نمایش جواب
+					{!isExpanded ? "مخفی کردن" : "نمایش جواب"}
 				</Button>
 				<ExpandableView answer={answer} expanded={isExpanded} />
 			</View>
