@@ -51,8 +51,9 @@ const styles = StyleSheet.create({
 		alignContent: "flex-end",
 		alignItems: "center",
 		height: 60,
-		borderRadius: 12,
+		borderRadius: 16,
 		paddingHorizontal: 15,
+		marginHorizontal: 10,
 	},
 	text: {
 		fontFamily: "Vazirmatn-Regular",
