@@ -65,7 +65,7 @@ function RiddleItem({ question, answer, id }) {
 			onLayout={onLayoutRootView}
 			style={[
 				styles.container,
-				{ backgroundColor: theme.colors.secondaryContainer },
+				{ backgroundColor: theme.colors.riddleContainer },
 			]}
 		>
 			<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
@@ -87,7 +87,7 @@ function RiddleItem({ question, answer, id }) {
 				<Button
 					icon="eye-outline"
 					mode="contained-tonal"
-					buttonColor={theme.colors.primaryContainer}
+					buttonColor={theme.colors.onPrimary}
 					onPress={() => {
 						setIsExpanded(!isExpanded);
 					}}
@@ -100,9 +100,6 @@ function RiddleItem({ question, answer, id }) {
 						fontFamily: "Vazirmatn-Bold",
 						fontSize: 16,
 						justifyContent: "center",
-						// alignItems: "center",
-						// alignSelf: "center",
-						// alignContent: "center",
 					}}
 				>
 					نمایش جواب
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 	},
 	answerText: {
-		color: "#ffd000",
+		color: "red",
 		fontFamily: "Vazirmatn-Bold",
 		fontSize: 20,
 		textAlign: "center",

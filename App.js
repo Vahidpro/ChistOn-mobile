@@ -53,6 +53,7 @@ const App = () => {
 				colors: {
 					...DefaultTheme.colors,
 					background: "#00071f",
+					riddleContainer: "#2b0053",
 				},
 		  }
 		: {
@@ -61,6 +62,8 @@ const App = () => {
 				colors: {
 					...MD3LightTheme.colors,
 					background: "#83a0ff",
+					riddleContainer: "#e3ebff",
+					answerText: "red",
 				},
 		  };
 
