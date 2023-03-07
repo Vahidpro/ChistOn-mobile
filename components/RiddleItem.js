@@ -109,7 +109,7 @@ function RiddleItem({ question, answer, id }) {
 		</View>
 	);
 }
-export default RiddleItem;
+export default React.memo(RiddleItem);
 
 const styles = StyleSheet.create({
 	container: {

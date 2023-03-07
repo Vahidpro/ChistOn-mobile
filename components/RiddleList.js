@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import RiddleItem from "./RiddleItem";
 import { useTheme } from "react-native-paper";
+import React from "react";
 
 function renderRiddleItem(itemData) {
 	return <RiddleItem {...itemData.item}></RiddleItem>;
@@ -8,7 +9,6 @@ function renderRiddleItem(itemData) {
 
 function RiddleList({ riddles }) {
 	const theme = useTheme();
-
 
 	return (
 		<View
@@ -25,7 +25,7 @@ function RiddleList({ riddles }) {
 		</View>
 	);
 }
-export default RiddleList;
+export default React.memo(RiddleList);
 
 const styles = StyleSheet.create({
 	container: {

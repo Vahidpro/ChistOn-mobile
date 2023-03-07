@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import RiddleList from "../components/RiddleList";
 import { RIDDLES } from "../data/riddles-data";
+import React from "react";
 function AllRiddles() {
 	return (
 		<>
@@ -8,4 +9,4 @@ function AllRiddles() {
 		</>
 	);
 }
-export default AllRiddles;
+export default React.memo(AllRiddles);
