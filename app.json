@@ -26,7 +26,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF",
         "userInterfaceStyle": "automatic"
-      }
+      },
+      "package": "com.vahidpr.ChistOnmobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
