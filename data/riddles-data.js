@@ -70,8 +70,8 @@ export const RIDDLES = [
 	{
 		number: (number += 1),
 		id: (id += 1),
-		question: "آن چیست که چیستان نیست؟",
-		answer: "فردا",
+		question: "در آسمان فقط یکی از آن هست اما در زمین بسیار زیاد!",
+		answer: "مشتری",
 	},
 	{
 		number: (number += 1),
