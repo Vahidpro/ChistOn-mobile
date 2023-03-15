@@ -1,41 +1,39 @@
 {
-  "expo": {
-    "name": "ChistOn-mobile",
-    "slug": "ChistOn-mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "userInterfaceStyle": "automatic"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
-        "userInterfaceStyle": "automatic"
-      },
-      "package": "com.vahidpr.ChistOnmobile"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "30188633-2ef8-4fee-b2ad-97ee8e1789e7"
-      }
-    }
-  }
+	"expo": {
+		"name": "چیستآن",
+		"slug": "ChistOn-mobile",
+		"version": "1.1.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"userInterfaceStyle": "automatic"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#FFFFFF",
+				"userInterfaceStyle": "automatic"
+			},
+			"package": "com.vahidpr.ChistOnmobile"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "30188633-2ef8-4fee-b2ad-97ee8e1789e7"
+			}
+		}
+	}
 }
