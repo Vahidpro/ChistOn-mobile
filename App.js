@@ -7,20 +7,13 @@ import { colors } from "./constants/colors";
 import {
 	Provider as PaperProvider,
 	MD3DarkTheme as DefaultTheme,
+	MD3LightTheme,
 } from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
 import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
-// Theme
-import {
-	NavigationContainer,
-	DarkTheme as NavigationDarkTheme,
-	DefaultTheme as NavigationDefaultTheme,
-} from "@react-navigation/native";
-import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
-import merge from "deepmerge";
 import { useColorScheme } from "react-native";
 import { PreferencesContext } from "./store/PreferencesContext";
 
@@ -29,7 +22,7 @@ const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
-	const [isThemeDark, setIsThemeDark] = React.useState(false);
+	const [isThemeDark, setIsThemeDark] = React.useState(true);
 	const colorScheme = useColorScheme();
 	// const isDarkMode = colorScheme === "dark";
 	// console.log(colorScheme);

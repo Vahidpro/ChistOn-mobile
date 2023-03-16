@@ -1,8 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "../constants/colors";
-import { useFonts } from "expo-font";
-import { useCallback, useContext, useEffect } from "react";
-import * as SplashScreen from "expo-splash-screen";
+import { useContext } from "react";
 import { BookmarksContext } from "../store/bookmarks-context";
 import { RIDDLES } from "../data/riddles-data";
 import RiddleList from "../components/RiddleList";
@@ -15,23 +12,6 @@ function BookmarksScreen() {
 	const bookmarkedRiddles = RIDDLES.filter((riddle) =>
 		bookmarkRiddlesCtx.ids.includes(riddle.id)
 	);
-
-	// Fonts
-	const [fontsLoaded] = useFonts({
-		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
-		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
-	});
-	const onLayoutRootView = useCallback(async () => {
-		if (fontsLoaded) {
-			await SplashScreen.hideAsync();
-		}
-	}, [fontsLoaded]);
-
-	if (!fontsLoaded) {
-		return null;
-	}
-
-	// Contents
 
 	if (bookmarkedRiddles.length === 0) {
 		return (

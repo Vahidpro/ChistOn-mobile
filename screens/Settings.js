@@ -1,31 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-
-import { colors } from "../constants/colors";
-import { useFonts } from "expo-font";
-import { useCallback, useState } from "react";
-import * as SplashScreen from "expo-splash-screen";
 import { Switch, useTheme } from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
 
 function Settings() {
-	const [isSwitchOn, setIsSwitchOn] = useState(true);
 	const theme = useTheme();
 	const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
-
-	const [fontsLoaded] = useFonts({
-		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
-		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
-	});
-	const onLayoutRootView = useCallback(async () => {
-		if (fontsLoaded) {
-			await SplashScreen.hideAsync();
-		}
-	}, [fontsLoaded]);
-
-	if (!fontsLoaded) {
-		return null;
-	}
 
 	return (
 		<View
