@@ -23,9 +23,6 @@ const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
 	const [isThemeDark, setIsThemeDark] = React.useState(true);
-	const colorScheme = useColorScheme();
-	// const isDarkMode = colorScheme === "dark";
-	// console.log(colorScheme);
 	const toggleTheme = React.useCallback(() => {
 		return setIsThemeDark(!isThemeDark);
 	}, [isThemeDark]);
