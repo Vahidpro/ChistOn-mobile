@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BottomNavigation, adaptNavigationTheme } from "react-native-paper";
+import { BottomNavigation } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Settings from "./screens/Settings";
@@ -14,7 +14,6 @@ import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
-import { useColorScheme } from "react-native";
 import { PreferencesContext } from "./store/PreferencesContext";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
@@ -23,8 +22,14 @@ const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
 	const [isThemeDark, setIsThemeDark] = React.useState(true);
-	const toggleTheme = React.useCallback(() => {
-		return setIsThemeDark(!isThemeDark);
+	const toggleTheme = React.useCallback(async () => {
+		try {
+			await AsyncStorage.setItem("isThemeDark", JSON.stringify(!isThemeDark));
+			setIsThemeDark(!isThemeDark);
+		} catch (e) {
+			console.log(e);
+		}
+		// return setIsThemeDark(!isThemeDark);
 	}, [isThemeDark]);
 
 	const preferences = React.useMemo(
