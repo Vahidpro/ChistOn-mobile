@@ -15,6 +15,7 @@ import BookmarksContextProvider from "./store/bookmarks-context";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { PreferencesContext } from "./store/PreferencesContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
