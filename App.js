@@ -23,6 +23,24 @@ const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
 	const [isThemeDark, setIsThemeDark] = React.useState(true);
+
+	// Get dark theme status with AsyncStorage
+	React.useEffect(() => {
+		const getDarkModeStatus = async () => {
+			try {
+				const value = await AsyncStorage.getItem("isThemeDark");
+				if (value !== null) {
+					setIsThemeDark(JSON.parse(value));
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		};
+		getDarkModeStatus();
+	}, []);
+
+	// Get dark theme status with AsyncStorage
+
 	const toggleTheme = React.useCallback(async () => {
 		try {
 			await AsyncStorage.setItem("isThemeDark", JSON.stringify(!isThemeDark));
@@ -30,7 +48,6 @@ const App = () => {
 		} catch (e) {
 			console.log(e);
 		}
-		// return setIsThemeDark(!isThemeDark);
 	}, [isThemeDark]);
 
 	const preferences = React.useMemo(
@@ -40,6 +57,8 @@ const App = () => {
 		}),
 		[toggleTheme, isThemeDark]
 	);
+
+	// Defimed themes
 
 	const theme = isThemeDark
 		? {
@@ -63,6 +82,7 @@ const App = () => {
 				},
 		  };
 
+	// Routes
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
 		{
@@ -98,6 +118,8 @@ const App = () => {
 	if (!fontsLoaded) {
 		return null;
 	}
+
+	// Navigation
 
 	const renderScene = BottomNavigation.SceneMap({
 		riddles: AllRiddlesRoute,
