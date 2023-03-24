@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Animated, Text } from "react-native";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
-import * as SplashScreen from "expo-splash-screen";
 import { Button, IconButton, useTheme } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
+import { hideAsync } from "expo-splash-screen";
 
 // Expand
 const ExpandableView = React.memo(({ expanded = false, answer }) => {
@@ -42,7 +42,7 @@ function RiddleItem({ question, answer, id }) {
 	});
 	const onLayoutRootView = useCallback(async () => {
 		if (fontsLoaded) {
-			await SplashScreen.hideAsync();
+			await hideAsync();
 		}
 	}, [fontsLoaded]);
 

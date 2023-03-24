@@ -1,5 +1,3 @@
-import * as React from "react";
-import { BottomNavigation } from "react-native-paper";
 import AllRiddles from "./screens/AllRiddles";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Settings from "./screens/Settings";
@@ -8,24 +6,26 @@ import {
 	Provider as PaperProvider,
 	MD3DarkTheme as DefaultTheme,
 	MD3LightTheme,
+	BottomNavigation,
 } from "react-native-paper";
 import Bookmarks from "./screens/Bookmarks";
-import { StatusBar } from "expo-status-bar";
 import BookmarksContextProvider from "./store/bookmarks-context";
-import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import { PreferencesContext } from "./store/PreferencesContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { hideAsync } from "expo-splash-screen";
 
 const AllRiddlesRoute = () => <AllRiddles></AllRiddles>;
 const BookmarksRoute = () => <Bookmarks></Bookmarks>;
 const SettingsRoute = () => <Settings></Settings>;
 
 const App = () => {
-	const [isThemeDark, setIsThemeDark] = React.useState(true);
+	const [isThemeDark, setIsThemeDark] = useState(true);
 
 	// Get dark theme status with AsyncStorage
-	React.useEffect(() => {
+	useEffect(() => {
 		const getDarkModeStatus = async () => {
 			try {
 				const value = await AsyncStorage.getItem("isThemeDark");
@@ -41,7 +41,7 @@ const App = () => {
 
 	// Get dark theme status with AsyncStorage
 
-	const toggleTheme = React.useCallback(async () => {
+	const toggleTheme = useCallback(async () => {
 		try {
 			await AsyncStorage.setItem("isThemeDark", JSON.stringify(!isThemeDark));
 			setIsThemeDark(!isThemeDark);
@@ -50,7 +50,7 @@ const App = () => {
 		}
 	}, [isThemeDark]);
 
-	const preferences = React.useMemo(
+	const preferences = useMemo(
 		() => ({
 			toggleTheme,
 			isThemeDark,
@@ -83,8 +83,8 @@ const App = () => {
 		  };
 
 	// Routes
-	const [index, setIndex] = React.useState(0);
-	const [routes] = React.useState([
+	const [index, setIndex] = useState(0);
+	const [routes] = useState([
 		{
 			key: "riddles",
 			title: "چیستان‌ها",
@@ -109,9 +109,9 @@ const App = () => {
 		"Vazirmatn-Regular": require("./assets/fonts/Vazirmatn-Regular.ttf"),
 		"Vazirmatn-Bold": require("./assets/fonts/Vazirmatn-Bold.ttf"),
 	});
-	const onLayoutRootView = React.useCallback(async () => {
+	const onLayoutRootView = useCallback(async () => {
 		if (fontsLoaded) {
-			await SplashScreen.hideAsync();
+			await hideAsync();
 		}
 	}, [fontsLoaded]);
 
