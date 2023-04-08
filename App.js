@@ -58,7 +58,7 @@ const App = () => {
 		[toggleTheme, isThemeDark]
 	);
 
-	// Defimed themes
+	// Defined themes
 
 	const theme = isThemeDark
 		? {
@@ -111,11 +111,17 @@ const App = () => {
 	});
 	const onLayoutRootView = useCallback(async () => {
 		if (fontsLoaded) {
+			console.log("fonts are loaded!");
 			await hideAsync();
 		}
 	}, [fontsLoaded]);
 
 	if (!fontsLoaded) {
+		console.log("fonts are not loaded!");
+		// setTimeout(async () => {
+		// 	await hideAsync();
+		// 	console.log("1 second passed");
+		// }, 1000);
 		return null;
 	}
 
