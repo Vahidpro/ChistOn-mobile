@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Animated, Text } from "react-native";
-import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import { Button, IconButton, useTheme } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
@@ -35,21 +34,6 @@ function RiddleItem({ question, answer, id }) {
 
 	const [isExpanded, setIsExpanded] = useState(true);
 
-	// Fonts
-	const [fontsLoaded] = useFonts({
-		"Vazirmatn-Regular": require("../assets/fonts/Vazirmatn-Regular.ttf"),
-		"Vazirmatn-Bold": require("../assets/fonts/Vazirmatn-Bold.ttf"),
-	});
-	const onLayoutRootView = useCallback(async () => {
-		if (fontsLoaded) {
-			await hideAsync();
-		}
-	}, [fontsLoaded]);
-
-	if (!fontsLoaded) {
-		return null;
-	}
-
 	const riddleIsBookmarked = bookmarkRiddlesCtx.ids.includes(riddleId);
 
 	function bookmarkPressHandler() {
@@ -62,7 +46,6 @@ function RiddleItem({ question, answer, id }) {
 
 	return (
 		<View
-			onLayout={onLayoutRootView}
 			style={[
 				styles.container,
 				{ backgroundColor: theme.colors.riddleContainer },
