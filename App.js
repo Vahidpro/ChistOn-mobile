@@ -118,10 +118,6 @@ const App = () => {
 
 	if (!fontsLoaded) {
 		console.log("fonts are not loaded!");
-		// setTimeout(async () => {
-		// 	await hideAsync();
-		// 	console.log("1 second passed");
-		// }, 1000);
 		return null;
 	}
 
@@ -134,7 +130,7 @@ const App = () => {
 	});
 
 	return (
-		<SafeAreaProvider>
+		<SafeAreaProvider onLayout={onLayoutRootView}>
 			<StatusBar style="light"></StatusBar>
 			<PreferencesContext.Provider value={preferences}>
 				<BookmarksContextProvider>
@@ -150,7 +146,6 @@ const App = () => {
 							activeColor={theme.colors.onPrimaryContainer}
 							inactiveColor={colors.gray100}
 							style={{ fontFamily: "Vazirmatn-Regular" }}
-							onLayout={onLayoutRootView}
 							sceneAnimationEnabled={true}
 							sceneAnimationType="shifting"
 						/>
