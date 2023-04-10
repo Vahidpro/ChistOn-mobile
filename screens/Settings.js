@@ -33,11 +33,13 @@ function Settings() {
 					style={styles.listItem}
 					title="سایت مجله ای‌سنج"
 					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
+					right={(props) => <List.Icon {...props} icon="web" />}
 				></List.Item>
 				<List.Item
 					style={styles.listItem}
 					title="سایت سیدرضا بازیار"
 					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
+					right={(props) => <List.Icon {...props} icon="web" />}
 				></List.Item>
 			</List.Section>
 		</View>
