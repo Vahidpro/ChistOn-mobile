@@ -172,12 +172,12 @@ export const RIDDLES = [
 	},
 	{
 		number: (number += 1),
-
 		id: (id += 1),
 		question: "با وجود داشتن چهار پا، اما نمی تواند حرکت کند! آن چیست؟",
 		answer: "چهارپایه",
 	},
 	{
+		number: (number += 1),
 		id: (id += 1),
 		question: "آن چیست که اتاق داره، هال نداره، دیوار داره، در نداره؟",
 		answer: "نقطه",

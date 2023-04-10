@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Animated, Text } from "react-native";
-import { useCallback } from "react";
 import { Button, IconButton, useTheme } from "react-native-paper";
 import { BookmarksContext } from "../store/bookmarks-context";
-import { hideAsync } from "expo-splash-screen";
 
 // Expand
 const ExpandableView = React.memo(({ expanded = false, answer }) => {
@@ -26,7 +24,7 @@ const ExpandableView = React.memo(({ expanded = false, answer }) => {
 	);
 });
 
-function RiddleItem({ question, answer, id }) {
+function RiddleItem({ number, question, answer, id }) {
 	const bookmarkRiddlesCtx = useContext(BookmarksContext);
 	const riddleId = id;
 
@@ -44,6 +42,8 @@ function RiddleItem({ question, answer, id }) {
 		}
 	}
 
+	let fixedNum = Number(number).toLocaleString("fa-ir");
+
 	return (
 		<View
 			style={[
@@ -51,9 +51,22 @@ function RiddleItem({ question, answer, id }) {
 				{ backgroundColor: theme.colors.riddleContainer },
 			]}
 		>
-			<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
-				{question}
-			</Text>
+			<View style={styles.questionContainer}>
+				<Text style={[styles.questionText, { color: theme.colors.secondary }]}>
+					{question}
+				</Text>
+				<Text
+					style={[
+						styles.questionNumber,
+						{
+							color: theme.colors.onBackground,
+							backgroundColor: theme.colors.background,
+						},
+					]}
+				>
+					{fixedNum}
+				</Text>
+			</View>
 			{/* Bookmark Button */}
 			<View>
 				<IconButton
@@ -100,14 +113,19 @@ const styles = StyleSheet.create({
 		borderRadius: 24,
 		margin: 10,
 	},
+	questionContainer: {
+		flexDirection: "row",
+		marginTop: 10,
+		padding: 2,
+	},
 	questionText: {
 		fontFamily: "Vazirmatn-Regular",
 		fontSize: 18,
 		paddingHorizontal: 15,
-		marginTop: 10,
+		flex: 1,
 	},
 	answerText: {
-		color: "#bbff00",
+		color: "#ff5e00",
 		fontFamily: "Vazirmatn-Bold",
 		fontSize: 24,
 		textAlign: "center",
@@ -118,5 +136,16 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		marginBottom: 15,
 		padding: 10,
+	},
+	questionNumber: {
+		fontFamily: "Vazirmatn-Bold",
+		fontSize: 24,
+		textAlign: "center",
+		width: 40,
+		height: 40,
+		borderRadius: 24,
+		justifyContent: "flex-end",
+		overflow: "hidden",
+		marginRight: 10,
 	},
 });
