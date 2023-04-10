@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Divider, Switch, useTheme } from "react-native-paper";
+import { Divider, List, Switch, useTheme } from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
 
 function Settings() {
@@ -25,6 +25,21 @@ function Settings() {
 				</Text>
 			</View>
 			<Divider style={styles.dividerStyle}></Divider>
+			<List.Section>
+				<List.Subheader style={styles.listSubheader}>
+					منابع چیستان‌ها
+				</List.Subheader>
+				<List.Item
+					style={styles.listItem}
+					title="سایت مجله ای‌سنج"
+					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
+				></List.Item>
+				<List.Item
+					style={styles.listItem}
+					title="سایت سیدرضا بازیار"
+					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
+				></List.Item>
+			</List.Section>
 		</View>
 	);
 }
@@ -47,6 +62,15 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 	},
 	dividerStyle: {
-		margin: 15,
+		marginTop: 30,
+		marginHorizontal: 15,
+	},
+	listItem: {
+		fontFamily: "Vazirmatn-Bold",
+	},
+	listSubheader: {
+		fontFamily: "Vazirmatn-Bold",
+		textAlign: "auto",
+		fontSize: 18,
 	},
 });
