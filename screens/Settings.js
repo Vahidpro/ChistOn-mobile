@@ -28,7 +28,10 @@ function Settings() {
 			<Divider style={styles.dividerStyle}></Divider>
 			<List.Section>
 				<List.Subheader style={styles.listSubheader}>
-					منابع چیستان‌ها
+					منابع چیستان‌ها{" "}
+					<Text style={styles.listSubheaderHint}>
+						(برای ورود روی منبع ضربه بزنید.)
+					</Text>
 				</List.Subheader>
 				<List.Item
 					style={styles.listItem}
@@ -85,5 +88,12 @@ const styles = StyleSheet.create({
 		fontFamily: "Vazirmatn-Bold",
 		textAlign: "auto",
 		fontSize: 18,
+	},
+	listSubheaderHint: {
+		fontFamily: "Vazirmatn-Regular",
+		textAlign: "auto",
+		fontSize: 14,
+		color: "#4538ff",
+		margin: 20,
 	},
 });
