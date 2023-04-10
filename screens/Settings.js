@@ -4,6 +4,7 @@ import {
 	Divider,
 	IconButton,
 	List,
+	MD3Colors,
 	Switch,
 	TouchableRipple,
 	useTheme,
@@ -76,21 +77,42 @@ function Settings() {
 			</List.Section>
 			<Divider style={styles.dividerStyle}></Divider>
 			<View>
-				<Text style={styles.credit}>
-					طراحی و توسعه با ❤️ توسط <Text style={styles.name}>وحید پُرکی </Text>
+				<Text
+					style={[styles.credit, { color: theme.colors.onPrimaryContainer }]}
+				>
+					طراحی و توسعه با ❤️ توسط{" "}
+					<Text
+						style={[styles.name, { color: theme.colors.onPrimaryContainer }]}
+					>
+						وحید پُرکی{" "}
+					</Text>
 					۱۴۰۲
 				</Text>
 				<View style={styles.socialContainer}>
 					<IconButton
 						icon="github"
-						// iconColor={MD3Colors.error50}
+						iconColor={MD3Colors.primary90}
 						size={40}
 						onPress={() =>
 							WebBrowser.openBrowserAsync("https://www.github.com/vahidpro/")
 						}
 						style={styles.social}
 					/>
+					<IconButton
+						icon="twitter"
+						iconColor={MD3Colors.primary90}
+						size={40}
+						onPress={() =>
+							WebBrowser.openBrowserAsync("https://www.twitter.com/vahidpr/")
+						}
+						style={styles.social}
+					/>
 				</View>
+				<Text
+					style={[styles.credit, { color: theme.colors.onPrimaryContainer }]}
+				>
+					نسخه ۱.۵.۲
+				</Text>
 			</View>
 		</View>
 	);
@@ -137,11 +159,9 @@ const styles = StyleSheet.create({
 		fontFamily: "Vazirmatn-Regular",
 		textAlign: "center",
 		fontSize: 16,
-		color: "#00557c",
 		margin: 20,
 	},
 	name: {
-		color: "#0042a5",
 		marginHorizontal: 20,
 		fontWeight: 700,
 	},
@@ -150,6 +170,8 @@ const styles = StyleSheet.create({
 	},
 	socialContainer: {
 		marginHorizontal: 20,
+		flexDirection: "row",
 		alignItems: "center",
+		justifyContent: "center",
 	},
 });
