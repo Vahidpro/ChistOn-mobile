@@ -127,7 +127,7 @@ function Settings() {
 					>
 						طراحی و توسعه با ❤️ توسط{" "}
 						<Text
-							style={[styles.name, { color: theme.colors.onPrimaryContainer }]}
+							style={[styles.name, { color: theme.colors.developerNameColor }]}
 						>
 							وحید پُرکی{" "}
 						</Text>
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
 	},
 	name: {
 		marginHorizontal: 20,
-		fontWeight: 700,
+		fontWeight: 800,
 	},
 	social: {
 		marginHorizontal: 20,
