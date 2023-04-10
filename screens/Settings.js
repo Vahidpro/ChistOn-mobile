@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Switch, useTheme } from "react-native-paper";
+import { Divider, Switch, useTheme } from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
 
 function Settings() {
@@ -8,16 +8,23 @@ function Settings() {
 	const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
 
 	return (
-		<View
-			style={[
-				styles.container,
-				{ backgroundColor: theme.colors.primaryContainer },
-			]}
-		>
-			<Switch value={isThemeDark} onValueChange={toggleTheme} color="#ff5ed7" />
-			<Text style={[styles.text, { color: theme.colors.onPrimaryContainer }]}>
-				حالت تاریک
-			</Text>
+		<View>
+			<View
+				style={[
+					styles.container,
+					{ backgroundColor: theme.colors.primaryContainer },
+				]}
+			>
+				<Switch
+					value={isThemeDark}
+					onValueChange={toggleTheme}
+					color="#ff5ed7"
+				/>
+				<Text style={[styles.text, { color: theme.colors.onPrimaryContainer }]}>
+					حالت تاریک
+				</Text>
+			</View>
+			<Divider style={styles.dividerStyle}></Divider>
 		</View>
 	);
 }
@@ -38,5 +45,8 @@ const styles = StyleSheet.create({
 	text: {
 		fontFamily: "Vazirmatn-Regular",
 		fontSize: 18,
+	},
+	dividerStyle: {
+		margin: 15,
 	},
 });
