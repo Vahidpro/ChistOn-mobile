@@ -71,6 +71,7 @@ const App = () => {
 					riddleContainer: "#2b0053",
 					answerText: "#d9ff00",
 					developerNameColor: "#0072f5",
+					numberingBackground: "#4d06f3a1",
 				},
 		  }
 		: {
@@ -82,6 +83,7 @@ const App = () => {
 					riddleContainer: "#e3ebff",
 					answerText: "#910000",
 					developerNameColor: "#004da5ff",
+					numberingBackground: "#bd4aff77",
 				},
 		  };
 

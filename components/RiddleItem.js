@@ -60,7 +60,7 @@ function RiddleItem({ number, question, answer, id }) {
 						styles.questionNumber,
 						{
 							color: theme.colors.onBackground,
-							backgroundColor: theme.colors.background,
+							backgroundColor: theme.colors.numberingBackground,
 						},
 					]}
 				>
