@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 	},
 	answerText: {
-		color: "red",
+		color: "#bbff00",
 		fontFamily: "Vazirmatn-Bold",
-		fontSize: 20,
+		fontSize: 24,
 		textAlign: "center",
 		marginTop: 20,
 	},
