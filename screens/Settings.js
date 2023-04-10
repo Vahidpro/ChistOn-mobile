@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Divider, List, Switch, useTheme } from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
+import * as WebBrowser from "expo-web-browser";
 
 function Settings() {
 	const theme = useTheme();
@@ -34,12 +35,22 @@ function Settings() {
 					title="سایت مجله ای‌سنج"
 					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
 					right={(props) => <List.Icon {...props} icon="web" />}
+					onPress={() =>
+						WebBrowser.openBrowserAsync(
+							"https://esanj.ir/mag/riddles-and-puzzles-with-answers"
+						)
+					}
 				></List.Item>
 				<List.Item
 					style={styles.listItem}
 					title="سایت سیدرضا بازیار"
 					titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
 					right={(props) => <List.Icon {...props} icon="web" />}
+					onPress={() =>
+						WebBrowser.openBrowserAsync(
+							"https://www.seyedrezabazyar.com/fa/interesting-riddles-with-answers/"
+						)
+					}
 				></List.Item>
 			</List.Section>
 		</View>
