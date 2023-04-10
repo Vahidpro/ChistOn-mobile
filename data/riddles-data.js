@@ -705,6 +705,82 @@ export const RIDDLES = [
 		writer: "",
 		difficulty: 1,
 	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question:
+			"آن چیست که وقتی هوا گرم می شود لباس می پوشد، وقتی هوا سرد می شود لباسش را بیرون می آورد؟",
+		answer: "درخت",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question: "آن چیست که هم ماه دارد و هم نان داردو هم داروخانه؟",
+		answer: "قرص",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question:
+			"آن چیست که پر دارد اما نمی پرد، دو پا دارد ولی همیشه با یک پا راه می رود؟",
+		answer: "پرگار",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question: "آن چیست که تولد دارد ولی مرگ به هیچ عنوان ندارد؟",
+		answer: "",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question: "نقطه",
+		answer: "",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question:
+			"آن چیست که رو به بالا و پایین، راست و چپ می رود اما هرگز حرکت نمی کند؟ ",
+		answer: "جاده",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question: "آن چیست که وقتی پر است راه می رود اما وقتی خالی است می ایستد؟",
+		answer: "کفش",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question: "آن چیست که نه چشم دارد نه دست و پا اما خبر می دهد از همه جا؟",
+		answer: "رادیو",
+		writer: "",
+		difficulty: 1,
+	},
+	{
+		number: (number += 1),
+		id: (id += 1),
+		question:
+			"آن چیست که به شیشه می خورد ولی آن را نمی شکند ولی به دیوار که می خورد خودش می شکند؟",
+		answer: "نور",
+		writer: "",
+		difficulty: 1,
+	},
 	// {
 	// 	number: (number += 1),
 	// 	id: (id += 1),
@@ -714,4 +790,3 @@ export const RIDDLES = [
 	// 	difficulty: 1,
 	// },
 ];
-// console.log(number);
