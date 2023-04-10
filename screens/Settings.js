@@ -1,6 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Divider, List, Switch, useTheme } from "react-native-paper";
+import {
+	Divider,
+	List,
+	Switch,
+	TouchableRipple,
+	useTheme,
+} from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
 import * as WebBrowser from "expo-web-browser";
 
@@ -26,6 +32,7 @@ function Settings() {
 				</Text>
 			</View>
 			<Divider style={styles.dividerStyle}></Divider>
+			{/* References */}
 			<List.Section>
 				<List.Subheader style={styles.listSubheader}>
 					منابع چیستان‌ها{" "}
@@ -56,6 +63,7 @@ function Settings() {
 					}
 				></List.Item>
 			</List.Section>
+			<Divider style={styles.dividerStyle}></Divider>
 		</View>
 	);
 }
@@ -79,7 +87,9 @@ const styles = StyleSheet.create({
 	},
 	dividerStyle: {
 		marginTop: 30,
-		marginHorizontal: 15,
+		marginHorizontal: 25,
+		backgroundColor: "#25014e",
+		borderRadius: 24,
 	},
 	listItem: {
 		fontFamily: "Vazirmatn-Bold",
