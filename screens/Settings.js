@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 		fontFamily: "Vazirmatn-Regular",
 		textAlign: "auto",
 		fontSize: 14,
-		color: "#4538ff",
+		color: "#0072f5",
 		margin: 20,
 	},
 	credit: {

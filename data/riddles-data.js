@@ -145,7 +145,6 @@ export const RIDDLES = [
 	},
 	{
 		number: (number += 1),
-
 		id: (id += 1),
 		question:
 			"آن کدام گیاه است که اگر نصفش کنی نیم آن لنگ و نیم دیگرش غصه باشد؟",
@@ -153,19 +152,18 @@ export const RIDDLES = [
 	},
 	{
 		number: (number += 1),
-
 		id: (id += 1),
 		question: "آن چیست که با یک نجوا می توان شکست؟",
 		answer: "راز",
 	},
 	{
+		number: (number += 1),
 		id: (id += 1),
 		question: "آن چیست كه خود ریسد و خود بافد جامه. پوست در پوست گرد یكدیگر؟",
 		answer: "عنكبوت",
 	},
 	{
 		number: (number += 1),
-
 		id: (id += 1),
 		question: "یک چشم دارد اما نمی بیند!",
 		answer: "سوزن",
