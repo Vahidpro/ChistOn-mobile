@@ -10,19 +10,20 @@ import {
 } from "react-native-paper";
 import { PreferencesContext } from "../store/PreferencesContext";
 import * as WebBrowser from "expo-web-browser";
+import { APP_VERSION } from "../constants/constants";
 
 function Settings() {
 	const theme = useTheme();
 	const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
 
 	return (
-		<View style={styles.mainContainer}>
+		<View>
 			<ScrollView>
 				<List.Subheader
 					style={[
 						styles.listSubheader,
 						{
-							marginTop: 80,
+							marginTop: 40,
 						},
 					]}
 				>
@@ -82,7 +83,7 @@ function Settings() {
 					<List.Item
 						style={styles.listItem}
 						title="نسخه نرم افزار"
-						description="۱.۵.۳"
+						description={APP_VERSION}
 						titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
 						descriptionStyle={{
 							fontFamily: "Vazirmatn-Regular",

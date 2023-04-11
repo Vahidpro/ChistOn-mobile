@@ -20,7 +20,6 @@ function RiddleList({ riddles }) {
 					data={riddles}
 					renderItem={renderRiddleItem}
 					keyExtractor={(item) => item.id}
-					initialNumToRender={5}
 				></FlatList>
 			</View>
 		</View>
