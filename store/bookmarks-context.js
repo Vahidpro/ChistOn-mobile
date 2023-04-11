@@ -33,6 +33,16 @@ function BookmarksContextProvider({ children }) {
 			console.log(e);
 		}
 	};
+	const removeData = async (id) => {
+		try {
+			const restoredRiddles = await AsyncStorage.getItem("@riddles");
+			const newArray = restoredRiddles ? JSON.parse(restoredRiddles) : [];
+			const updatedArray = newArray.filter((item) => item !== id);
+			await AsyncStorage.setItem("@riddles", JSON.stringify(updatedArray));
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
 	function addBookmark(id) {
 		setRiddleIds((curId) => [...curId, id]);
@@ -40,6 +50,7 @@ function BookmarksContextProvider({ children }) {
 	}
 	function removeBookmark(id) {
 		setRiddleIds((curId) => curId.filter((riddleId) => riddleId !== id));
+		removeData(id);
 	}
 
 	const value = {
