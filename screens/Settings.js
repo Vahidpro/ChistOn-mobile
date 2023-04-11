@@ -57,9 +57,9 @@ function Settings() {
 					</List.Subheader>
 					<List.Item
 						style={styles.listItem}
-						title="سایت مجله ای‌سنج"
+						title="esanj.ir"
 						titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
-						right={(props) => <List.Icon {...props} icon="web" />}
+						left={(props) => <List.Icon {...props} icon="web" />}
 						onPress={() =>
 							WebBrowser.openBrowserAsync(
 								"https://esanj.ir/mag/riddles-and-puzzles-with-answers"
@@ -68,9 +68,9 @@ function Settings() {
 					></List.Item>
 					<List.Item
 						style={styles.listItem}
-						title="سایت سیدرضا بازیار"
+						title="seyedrezabazyar.com"
 						titleStyle={{ fontFamily: "Vazirmatn-Regular", textAlign: "auto" }}
-						right={(props) => <List.Icon {...props} icon="web" />}
+						left={(props) => <List.Icon {...props} icon="web" />}
 						onPress={() =>
 							WebBrowser.openBrowserAsync(
 								"https://www.seyedrezabazyar.com/fa/interesting-riddles-with-answers/"
