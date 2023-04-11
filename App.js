@@ -116,13 +116,11 @@ const App = () => {
 	});
 	const onLayoutRootView = useCallback(async () => {
 		if (fontsLoaded) {
-			console.log("fonts are loaded!");
 			await hideAsync();
 		}
 	}, [fontsLoaded]);
 
 	if (!fontsLoaded) {
-		console.log("fonts are not loaded!");
 		return null;
 	}
 
