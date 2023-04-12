@@ -658,7 +658,7 @@ export const RIDDLES = [
 	{
 		number: (number += 1),
 		id: (id += 1),
-		question: "از صفر تا صد چند تا 9 وجود دارد؟",
+		question: "از صفر تا صد چند تا ۹ وجود دارد؟",
 		answer: "بیست تا",
 		writer: "",
 		difficulty: 1,
