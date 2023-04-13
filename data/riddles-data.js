@@ -470,14 +470,6 @@ export const RIDDLES = [
 	{
 		number: (number += 1),
 		id: (id += 1),
-		question: "",
-		answer: "",
-		writer: "",
-		difficulty: 1,
-	},
-	{
-		number: (number += 1),
-		id: (id += 1),
 		question:
 			"عضوی از بدن که می توانید آن را به کسی که دوست دارید بدهید. اما شکسته شدن آن دردناک است و جبران ناپذیر. آن چیست؟",
 		answer: "قلب",
@@ -582,7 +574,7 @@ export const RIDDLES = [
 		id: (id += 1),
 		question:
 			"نقش‌های سیاه و سفید، راه راه، این آرایش من است و در طبیعت زندگی می‌کنم. من چی هستم؟",
-		answer: "",
+		answer: "گورخر",
 		writer: "",
 		difficulty: 1,
 	},
