@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import RiddleItem from "./RiddleItem";
 import { useTheme } from "react-native-paper";
 import React from "react";
