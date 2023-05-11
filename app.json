@@ -24,7 +24,8 @@
 				"foregroundImage": "./assets/adaptive-icon.png",
 				"backgroundColor": "#202025"
 			},
-			"package": "com.vahidpr.ChistOnmobile"
+			"package": "com.vahidpr.ChistOnmobile",
+			"blockedPermissions": ["android.permission.SYSTEM_ALERT_WINDOW"]
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
